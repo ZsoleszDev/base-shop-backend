@@ -22,6 +22,7 @@ public class UserController {
         userService.initRoleAndUser();
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @PostMapping({"/registerNewUser"})
     public User registerUser(@RequestBody User user){
             return userService.registerNewUser(user);

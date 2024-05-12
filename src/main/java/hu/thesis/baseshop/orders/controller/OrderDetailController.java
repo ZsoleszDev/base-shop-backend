@@ -16,6 +16,7 @@ public class OrderDetailController {
     @Autowired
     private OrderDetailService orderDetailService;
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @PreAuthorize("hasRole('User')")
     @PostMapping({"/placeOrder/{isSingleProductCheckout}"})
     public void placeOrder(@PathVariable(name = "isSingleProductCheckout") boolean isSingleProductCheckout,
@@ -23,18 +24,21 @@ public class OrderDetailController {
         orderDetailService.placeOrder(orderInput, isSingleProductCheckout);
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @PreAuthorize("hasRole('User')")
     @GetMapping({"/getOrderDetails"})
     public List<OrderDetail> getOrderDetails() {
         return orderDetailService.getOrderDetails();
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @PreAuthorize("hasRole('Admin')")
     @GetMapping({"/getAllOrderDetails"})
     public List<OrderDetail> getAllOrderDetails() {
         return orderDetailService.getAllOrderDetails();
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @PreAuthorize("hasRole('Admin')")
     @GetMapping({"/markOrderAsDelivered/{orderId}"})
     public void markOrderAsDelivered(@PathVariable(name = "orderId") Integer orderId) {
