@@ -6,7 +6,7 @@ import hu.thesis.baseshop.products.entity.Product;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name="cart")
 public class Cart {
 
     @Id
