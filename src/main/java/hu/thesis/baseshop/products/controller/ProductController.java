@@ -25,6 +25,7 @@ public class ProductController {
     @Autowired
     private OpinionsService opinionsService;
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @PreAuthorize("hasRole('Admin')")
     @PostMapping(value = {"/addNewProduct"}, consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public Product addNewProduct(@RequestPart("product") Product product,
@@ -40,6 +41,7 @@ public class ProductController {
 
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @PreAuthorize("hasRole('User')")
     @PostMapping(value = {"/addNewOpinion"})
     public Opinions addNewProduct(@RequestPart("opinions") Opinions opinions) {
@@ -64,45 +66,53 @@ public class ProductController {
         return imageModels;
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @GetMapping({"/getAllProducts"})
     public List<Product> getAllProducts(){
         return productService.getAllProducts();
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @PreAuthorize("hasRole('Admin')")
     @GetMapping({"/getAllOpinion"})
     public List<Opinions> getAllOpinion(){
         return opinionsService.getAllOpinion();
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @PreAuthorize("hasRole('Admin')")
     @DeleteMapping({"/deleteProductDetails/{productId}"})
     public void deleteProductDetails(@PathVariable("productId") Integer productId) {
         productService.deleteProductDetails(productId);
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @PreAuthorize("hasRole('Admin')")
     @DeleteMapping({"/deleteOpinion/{opinionId}"})
     public void deleteOpinion(@PathVariable("opinionId") Integer opinionId) {
         opinionsService.deleteOpinion(opinionId);
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @GetMapping({"/getProductDetailsById/{productId}"})
     public Product getProductDetailsById(@PathVariable("productId") Integer productId){
         return productService.getProductDetailsById(productId);
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @PreAuthorize("hasRole('User')")
     @GetMapping({"/getOpinionById/{id}"})
     public List<Opinions> getOpinionById(@PathVariable("id") String id){
         return opinionsService.getOpinionById(id);
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @GetMapping({"/getOpinionByProd/{productId}"})
     public List<Opinions> getOpinionByProductId(@PathVariable("productId") Integer productId){
         return opinionsService.getOpinionByProductId(productId);
     }
 
+    @CrossOrigin(origins = "https://www.baseshop.hu")
     @PreAuthorize("hasRole('User')")
     @GetMapping({"/getProductDetails/{isSingleProductCheckout}/{productId}"})
     public List<Product> getProductDetails(@PathVariable(name = "isSingleProductCheckout") boolean isSingleProductCheckout,
