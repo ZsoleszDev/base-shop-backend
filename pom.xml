@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>hu.thesis</groupId>
 	<artifactId>baseshop</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1</version>
 	<name>baseshop</name>
 	<description>University Thesis by.: Olah Zsolt Martin</description>
 	<properties>
