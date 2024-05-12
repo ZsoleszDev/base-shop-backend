@@ -6,6 +6,6 @@ RUN ./gradlew bootJar --no-daemon
 
 FROM openjdk:17-jdk-slim
 EXPOSE 9090
-COPY --from-build /target/baseshop-1.jar app.jar
+COPY --from-build target/*.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
